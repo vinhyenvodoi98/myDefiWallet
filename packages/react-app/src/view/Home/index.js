@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from 'ethereumLogo.png';
-import { Button, Image } from 'components';
+import { Button, Image, Input } from 'components';
 
 async function readOnChainData() {
   // const defaultProvider = getDefaultProvider();
@@ -16,6 +16,7 @@ export default function Home() {
       <p>
         Edit <code>packages/react-app/src/App.js</code> and save to reload.
       </p>
+      <Input />
       {/* Remove the "hidden" prop and open the JavaScript console in the browser to see what this function does */}
       <Button onClick={() => readOnChainData()}>Read On-Chain Balance</Button>
     </div>

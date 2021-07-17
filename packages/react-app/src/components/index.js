@@ -7,14 +7,14 @@ export const Header = styled.header`
   align-items: center;
   justify-content: flex-end;
   color: white;
-  background: #e0e0e0;
+  background: ${({ theme }) => theme.background};
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 `;
 
 export const Body = styled.div`
   align-items: center;
-  background-color: #e0e0e0;
-  color: white;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -40,23 +40,24 @@ export const Card = styled.div`
   margin: 0px 20px;
   padding: 12px 24px;
   border-radius: 50px;
-  color: black;
-  background: #e0e0e0;
-  box-shadow: 17px 17px 33px #bebebe, -17px -17px 33px #ffffff;
+  color: ${({ theme }) => theme.text};
+  background: ${({ theme }) => theme.background};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
 export const Button = styled.button`
   border: none;
-  color: #282c34;
+  color: ${({ theme }) => theme.text};
   cursor: pointer;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
+  font-family: 'Nunito Sans', sans-serif;
   margin: 0px 20px;
   padding: 12px 24px;
   border-radius: 50px;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  box-shadow: 17px 17px 33px #bebebe, -17px -17px 33px #ffffff;
+  background: ${({ theme }) => theme.buttonBackground};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 
   ${(props) => props.hidden && 'hidden'} :focus {
     border: none;
@@ -65,12 +66,20 @@ export const Button = styled.button`
 
   &:active {
     background: linear-gradient(145deg, #cacaca, #f0f0f0);
-    box-shadow: 17px 17px 33px #bebebe, -17px -17px 33px #ffffff;
     transform: translateY(2px);
   }
 
   &:hover {
-    background: #e0e0e0;
-    box-shadow: 17px 17px 33px #bebebe, -17px -17px 33px #ffffff;
+    background: ${({ theme }) => theme.background};
   }
+`;
+
+export const Input = styled.input`
+  margin: 0px 20px;
+  padding: 12px 24px;
+  color: ${({ theme }) => theme.text};
+  border: none;
+  outline: none;
+  background: ${({ theme }) => theme.background};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `;

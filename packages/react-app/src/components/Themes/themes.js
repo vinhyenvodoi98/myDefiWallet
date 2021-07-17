@@ -1,13 +1,17 @@
-export const lightTheme = {
+export const darkTheme = {
   body: '#FFF',
-  text: '#363537',
+  text: '#FAFAFA',
   toggleBorder: '#FFF',
-  background: 'linear-gradient(#39598A, #79D7ED)'
+  background: ' #202020',
+  buttonBackground: 'linear-gradient(145deg, #1d1d1d, #222222);',
+  boxShadow: '20px 20px 47px #0d0d0d, -20px -20px 47px #333333'
 };
 
-export const darkTheme = {
+export const lightTheme = {
   body: '#363537',
-  text: '#FAFAFA',
+  text: '#363537',
   toggleBorder: '#6B8096',
-  background: '#999'
+  background: '#e0e0e0',
+  buttonBackground: 'linear-gradient(145deg, #f0f0f0, #cacaca)',
+  boxShadow: '17px 17px 33px #bebebe, -17px -17px 33px #ffffff'
 };
