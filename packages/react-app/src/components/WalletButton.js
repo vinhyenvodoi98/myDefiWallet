@@ -1,10 +1,7 @@
 import React from 'react';
 import { Button } from 'components';
-import useWeb3Modal from 'hooks/useWeb3Modal';
 
-export default function WalletButton() {
-  const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
-
+export default function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   return (
     <Button
       onClick={() => {

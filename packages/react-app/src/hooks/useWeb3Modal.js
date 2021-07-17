@@ -41,7 +41,6 @@ function useWeb3Modal(config = {}) {
 
     // Subscribe to accounts change
     newProvider.on('accountsChanged', async (accounts) => {
-      console.log({ accounts });
       setAddress(accounts[0]);
     });
 

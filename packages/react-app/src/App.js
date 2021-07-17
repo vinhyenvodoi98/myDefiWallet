@@ -11,7 +11,7 @@ import { lightTheme, darkTheme } from 'components/Themes/themes';
 import { useDarkMode } from 'hooks/useThemes';
 
 function App() {
-  const [, address] = useWeb3Modal();
+  const [provider, address, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
@@ -28,7 +28,11 @@ function App() {
         ) : (
           <></>
         )}
-        <WalletButton />
+        <WalletButton
+          provider={provider}
+          loadWeb3Modal={loadWeb3Modal}
+          logoutOfWeb3Modal={logoutOfWeb3Modal}
+        />
         <Toggle theme={theme} toggleTheme={themeToggler} />
       </Header>
       <Body>
