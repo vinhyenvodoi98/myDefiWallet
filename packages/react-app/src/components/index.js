@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  min-height: 70px;
+  min-height: 135px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   color: white;
+  z-index: 1;
   background: ${({ theme }) => theme.background};
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
 export const Body = styled.div`
@@ -19,7 +20,24 @@ export const Body = styled.div`
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 135px);
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  ${(props) => props.center && 'center'} {
+    justify-content: center;
+  }
+
+  ${(props) => props.spaceAround && 'spaceAround'} {
+    justify-content: space-around;
+  }
+
+  ${(props) => props.spaceBetween && 'spaceBetween'} {
+    justify-content: space-between;
+  }
 `;
 
 export const Image = styled.img`
@@ -37,9 +55,10 @@ export const Link = styled.a.attrs({
 `;
 
 export const Card = styled.div`
-  margin: 0px 20px;
+  margin: 0px 10px;
   padding: 12px 24px;
   border-radius: 50px;
+  font-size: 0.9vw;
   color: ${({ theme }) => theme.text};
   background: ${({ theme }) => theme.background};
   box-shadow: ${({ theme }) => theme.boxShadow};
@@ -49,7 +68,7 @@ export const Button = styled.button`
   border: none;
   color: ${({ theme }) => theme.text};
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.9vw;
   text-align: center;
   text-decoration: none;
   font-family: 'Nunito Sans', sans-serif;
@@ -75,8 +94,8 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
-  margin: 0px 20px;
   padding: 12px 24px;
+  border-radius: 50px;
   color: ${({ theme }) => theme.text};
   border: none;
   outline: none;
