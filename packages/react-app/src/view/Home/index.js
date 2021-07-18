@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Input, Card } from 'components';
+import { Button, Row, Input, Card, Icon } from 'components';
 import axiosClient from 'api';
 import { getListOfERC20 } from 'api/apiProvider';
 import { Layout, Sider, Content } from 'components/SideBar';
 import { useGetBalance } from 'hooks/useGetBalance';
+import { getNetwork } from 'utlis/network';
 
 async function readOnChainData(address) {
   const data = await axiosClient(getListOfERC20(address));
@@ -31,10 +32,16 @@ export default function Home() {
 
   useEffect(() => {
     const main = async () => {
+      if (addresses.length > 0) localStorage.setItem('addresses', addresses.toString());
       fetchBalance(addresses);
     };
     main();
   }, [addresses, fetchBalance]);
+
+  useEffect(() => {
+    let addresses = localStorage.getItem('addresses');
+    if (!!addresses) setAddresses(addresses.split(','));
+  }, []);
 
   return (
     <Layout>
@@ -63,7 +70,9 @@ export default function Home() {
             balance.map((bal, index) => (
               <Card key={index}>
                 <Row>
-                  <Card>{bal.network}</Card>
+                  <Card>
+                    <Icon src={getNetwork(bal.network).logo} />
+                  </Card>
                   {/* <Card>{bal.data}</Card> */}
                   {console.log(bal)}
                 </Row>

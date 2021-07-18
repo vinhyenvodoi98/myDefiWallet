@@ -102,3 +102,11 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.background};
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
+
+export const Icon = styled.img`
+  height: 30px;
+  weight: 30px;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.buttonBackground};
+  box-shadow: ${({ theme }) => theme.boxShadow};
+`;

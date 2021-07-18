@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import axiosClient from 'api';
 import { NativeBalance } from 'api/apiProvider';
+import { network } from 'utlis/network';
 export const useGetBalance = () => {
   const [balance, setBalance] = useState('');
 
@@ -8,11 +9,12 @@ export const useGetBalance = () => {
     if (!!addresses && addresses.length > 0) {
       let data;
       let convertData = [];
-      data = await axiosClient(NativeBalance('eth', addresses));
-      convertData.push({ network: 'eth', data: data.result });
 
-      data = await axiosClient(NativeBalance('bsc', addresses));
-      convertData.push({ network: 'bsc', data: data.result });
+      for (const [key] of Object.entries(network)) {
+        data = await axiosClient(NativeBalance(key, addresses));
+        convertData.push({ network: key, data: data.result });
+      }
+
       setBalance(convertData);
     }
   }, []);
