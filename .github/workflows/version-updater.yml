@@ -6,6 +6,7 @@ on:
 
 jobs:
   update-version:
+    steps:
     - uses: actions/checkout@v3
     - name: Setup helmfile
       uses: mamezou-tech/setup-helmfile@v1.0.0
