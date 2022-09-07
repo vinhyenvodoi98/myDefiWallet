@@ -1,0 +1,14 @@
+name: Update version
+on:
+  push:
+    paths:
+      - 'README.md'
+
+jobs:
+  update-version:
+    - uses: actions/checkout@v3
+    - name: Setup helmfile
+      uses: mamezou-tech/setup-helmfile@v1.0.0
+    - name: Generate file
+      run: |
+        echo "text" > test.md
